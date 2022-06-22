@@ -6,11 +6,16 @@ import unittest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+class Test_shop_functions():
 
-class TestShopFunctions():
-    @pytest.mark.test_guest_can_go_to_login_page
-    def test_guest_can_go_to_login_page(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/"
+    @pytest.mark.test_goods_has_add_to_basket_button
+    def test_goods_has_add_to_basket_button(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+        browser.implicitly_wait(15)
         browser.get(link)
-        login_link = browser.find_element(By.CSS_SELECTOR, "#login_link")
-        login_link.click()
+        #time.sleep(30) #sleep для проверки правильности инициализации браузера
+        button = WebDriverWait(browser, 5).until(EC.presence_of_element_located(
+            (By.CSS_SELECTOR, "form.add-to-basket#add_to_basket_form button.btn.btn-lg.btn-primary.btn-add-to-basket")))
+        assert (button!= None, 'Кнопка не найдена')
+        button.click()
+
