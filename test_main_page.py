@@ -2,20 +2,23 @@ import time
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import unittest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from .pages.main_page import MainPage
 
-class Test_shop_functions():
 
-    @pytest.mark.test_goods_has_add_to_basket_button
-    def test_goods_has_add_to_basket_button(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
-        browser.implicitly_wait(15)
-        browser.get(link)
-        #time.sleep(30) #sleep для проверки правильности инициализации браузера
-        button = WebDriverWait(browser, 5).until(EC.presence_of_element_located(
-            (By.CSS_SELECTOR, "form.add-to-basket#add_to_basket_form button.btn.btn-lg.btn-primary.btn-add-to-basket")))
-        assert (button!= None, 'Кнопка не найдена')
-        button.click()
+@pytest.mark.test_guest_can_go_to_login_page
+def test_guest_can_go_to_login_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/"
+    page = MainPage(browser, link)  # инициализируем Page Object, передаем в конструктор
+    # экземпляр драйвера и url адрес
+    page.open()  # открываем страницу
+    page.go_to_login_page()  # выполняем метод страницы — переходим на страницу логина
+
+@pytest.mark.test_guest_should_see_login_link
+def test_guest_should_see_login_link(browser):
+    link = "http://selenium1py.pythonanywhere.com/"
+    page = MainPage(browser, link)
+    page.open()
+    page.should_be_login_link()
 
