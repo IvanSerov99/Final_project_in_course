@@ -17,8 +17,6 @@ def test_guest_can_go_to_login_page(browser):
     page.go_to_login_page()
     login_page = LoginPage(browser, browser.current_url)
     login_page.should_be_login_page()
-    alert = browser.switch_to.alert
-    alert.accept()
 
 @pytest.mark.test_guest_should_see_login_link
 def test_guest_should_see_login_link(browser):
@@ -26,8 +24,6 @@ def test_guest_should_see_login_link(browser):
     page = MainPage(browser, link)
     page.open()
     page.should_be_login_link()
-    alert = browser.switch_to.alert
-    alert.accept()
 
 @pytest.mark.test_guest_on_the_right_page_and_can_use_registration
 def test_guest_on_the_right_page_and_can_use_registration(browser):
@@ -38,8 +34,6 @@ def test_guest_on_the_right_page_and_can_use_registration(browser):
     page = LoginPage(browser, browser.current_url)
     page.should_be_login_url()
     page.should_be_register_form()
-    alert = browser.switch_to.alert
-    alert.accept()
 
 @pytest.mark.test_guest_on_the_right_page_and_can_use_authorization
 def test_guest_on_the_right_page_and_can_use_authorization(browser):
@@ -50,5 +44,3 @@ def test_guest_on_the_right_page_and_can_use_authorization(browser):
     page = LoginPage(browser, browser.current_url)
     page.should_be_login_url()
     page.should_be_login_form()
-    alert = browser.switch_to.alert
-    alert.accept()
