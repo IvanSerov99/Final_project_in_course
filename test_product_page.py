@@ -3,6 +3,8 @@ import time
 import pytest
 from .pages.product_page import ProductPage
 from .pages.base_page import BasePage
+from .pages.basket_page import BasketPage
+
 '''
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
@@ -69,8 +71,20 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
-    page = BasePage(browser, browser.current_url)
-    page.should_be_able_to_follow_the_login_page()
+    login_page = BasePage(browser, browser.current_url)
+    login_page.should_be_able_to_follow_the_login_page()
+
+@pytest.mark.test_guest_cant_see_product_in_basket_opened_from_product_page
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/"
+    page = BasePage(browser, link)
+    page.open()
+    page.go_to_basket_page()
+    basket_page = BasketPage(browser, browser.current_url)
+    basket_page.basket_must_be_empty()
+    basket_page.basket_should_have_text_that_it_is_empty()
+
+
 
 
 
