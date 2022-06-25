@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
 from .pages.basket_page import BasketPage
-from  .pages.base_page import BasePage
+from .pages.base_page import BasePage
 
 @pytest.mark.login_guest
 class TestLoginFromMainPage():

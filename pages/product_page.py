@@ -26,7 +26,7 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.ADD_CART_BUTTON), \
             "There is no button add product to cart"
 
-    def add_item_right(self, item_name):
+    def add_item_was_right(self, item_name):
         item_header = ProductPage.get_item_header(self)
         assert str(item_name) == str(item_header)
 
