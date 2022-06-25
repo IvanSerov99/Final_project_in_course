@@ -1,10 +1,10 @@
 from .base_page import BasePage
 from .locators import BasketPageLocators
 
+
 class BasketPage(BasePage):
     def __init__(self, *args, **kwargs):
         super(BasketPage, self).__init__(*args, **kwargs)
-
 
     def basket_must_be_empty(self):
         assert self.is_not_element_present(*BasketPageLocators.EMPTY_BASKET), "Basket is not empty"
