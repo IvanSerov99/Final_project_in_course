@@ -20,7 +20,7 @@ import random
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"])
 '''
-'''
+
 @pytest.mark.test_that_the_guest_can_add_an_product_to_the_basket
 def test_that_the_guest_can_add_an_product_to_the_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
@@ -34,7 +34,7 @@ def test_that_the_guest_can_add_an_product_to_the_basket(browser):
     test_selenuim_usage = BasePage(browser, link)
     test_selenuim_usage.solve_quiz_and_get_code()
     page.add_item_right(item_name)
-'''
+
 @pytest.mark.xfail(reason="Making negative checks that the element is not present")
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/"

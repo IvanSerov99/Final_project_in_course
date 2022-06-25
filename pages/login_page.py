@@ -32,7 +32,4 @@ class LoginPage(BasePage):
         confirm_input_password.send_keys(password)
         registration_button = self.browser.find_element(*LoginPageLocators.REGISTER_BUTTON)
         registration_button.click()
-        confirm_registration_right_text = "Thanks for registering!"
-        confirm_registration_right = self.browser.find_element(*LoginPageLocators.SUCCESSFULL_REGISTRATION)
-        assert str(confirm_registration_right.text) == confirm_registration_right_text, \
-            "Registration was not successful"
+        confirm_registration_right_text = "Thanks for registering!"\
