@@ -22,7 +22,7 @@ import random
 '''
 
 @pytest.mark.need_review
-def test_that_the_guest_can_add_an_product_to_the_basket(browser):
+def test_guest_can_add_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
     page = ProductPage(browser, link)
     page.open()
@@ -114,7 +114,7 @@ class TestUserAddToBasketFromProductPage():
         page.should_not_be_success_message()
 
 
-    def test_that_the_user_can_add_an_product_to_the_basket(self, browser):
+    def test_user_can_add_product_to_basket(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
         # link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
         page = ProductPage(browser, link)
