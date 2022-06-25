@@ -23,8 +23,18 @@ class ProductPage(BasePage):
         add_product.click()
 
     def add_cart_button_can_be_pushed(self, item_name, item_price):
-        assert self.is_element_present(*ProductPageLocators.ADD_CART_BUTTON), "There is no button add product to cart"
+        assert self.is_element_present(*ProductPageLocators.ADD_CART_BUTTON), \
+            "There is no button add product to cart"
 
     def add_item_right(self, item_name):
         item_header = ProductPage.get_item_header(self)
         assert str(item_name) == str(item_header)
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def success_message_should_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, it must disappear"
+
