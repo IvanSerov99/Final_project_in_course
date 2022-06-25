@@ -6,3 +6,7 @@
 Stepik course about automation testing with Selenium and Python
 
 https://stepik.org/lesson/187065/step/8?unit=161976
+
+Сегодня 25.06.2022 сайт для тестирования автоматизации падает. С такой ошибкой.
+![image](https://user-images.githubusercontent.com/97604668/175778133-38597350-b6b3-4381-a751-3df72313a4b3.png)
+Из-за этого могут возникать ошибки в проверке. сли у вас возникнет, просьба проверить еще раз.
